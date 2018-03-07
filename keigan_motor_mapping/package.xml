@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <name>keigan_motor_mapping</name>
+  <version>0.0.1</version>
+  <description>The keigan_motor_mapping package</description>
+
+  <maintainer email="furqan.habibi1@gmail.com">Muhammad Furqan Habibi</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <author email="furqan.habibi1p@gmail.com">Muhammad Furqan Habibi</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>gmapping</run_depend>
+  <run_depend>hector_mapping</run_depend>
+  <run_depend>map_server</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rosbag</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>slam_karto</run_depend>
+  <!-- <run_depend>cartographer_ros</run_depend> -->
+
+  <test_depend>rostest</test_depend>
+  <test_depend>roslaunch</test_depend>
+
+  <!-- the export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

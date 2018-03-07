@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>keigan_motor</name>
+  <version>0.0.1</version>
+  <description>The keigan_motor meta package</description>
+
+  <maintainer email="furqan.habibi1@gmail.com">Muhammad Furqan Habibi</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <author email="furqan.habibi1@gmail.com">Muhammad Furqan Habibi</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>keigan_motor_bringup</run_depend>
+  <run_depend>keigan_motor_mapping</run_depend>
+  <run_depend>keigan_motor_navigation</run_depend>
+  <run_depend>keigan_motor_follower</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

@@ -1,0 +1,21 @@
+<launch>
+  <rosparam command="delete" ns="move_base"/>
+  
+  <arg name="map_file" default="map.yaml"/>
+  <arg name="launch_rviz" default="true"/>
+
+  <!-- Map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find keigan_motor_navigation)/map/$(arg map_file)" />
+
+  <!-- AMCL -->
+  <include file="$(find keigan_motor_navigation)/launch/include/laser_amcl.launch.xml"/>
+
+  <!-- Move base -->
+  <include file="$(find keigan_motor_navigation)/launch/include/move_base.launch.xml"/>
+
+  <!-- Rviz -->
+  <include if="$(arg launch_rviz)" file="$(find keigan_motor_navigation)/launch/rviz.launch"/>
+
+
+</launch>
+

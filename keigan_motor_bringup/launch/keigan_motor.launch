@@ -1,0 +1,41 @@
+<launch>
+  <!-- Set true to launch RPLIDAR node -->
+  <arg name="launch_rplidar" default="true"/>
+
+  <!-- Set true to launch rviz -->
+  <arg name="launch_rviz" default="false"/>
+
+  <!-- Load robot description -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find keigan_motor_description)/urdf/keigan_motor.urdf.xacro'" />
+
+  <!-- Robot state publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="5.0" />
+  </node>
+
+  <!-- RPLIDAR A2 -->
+  <node if="$(arg launch_rplidar)" name="rplidarNode" pkg="rplidar_ros" type="rplidarNode">
+    <param name="serial_port" type="string" value="/dev/rplidar"/>  
+    <param name="serial_baudrate" type="int" value="115200"/>
+    <param name="frame_id" type="string" value="laser"/>
+    <param name="inverted" type="bool" value="false"/>
+    <param name="angle_compensate" type="bool" value="true"/>
+  </node>
+
+  <!-- Run Keigan Motor ROS driver -->
+  <node pkg="keigan_motor_driver" type="keigan_motor_driver.py" name="keigan_motor_node" respawn="true" args="--respawnable" output="screen">
+    <param name="odom_frame" value="odom" />
+    <param name="base_frame" value="base_footprint" />
+    <param name="wheel_separation" value="0.305" />
+    <param name="wheel_diameter" value="0.12" />
+    <param name="left_wheel_forward" value="true" />
+    <param name="right_wheel_forward" value="false" />
+    <param name="left_wheel_mac" value="D8:BA:37:4A:88:A1" />
+    <param name="right_wheel_mac" value="DD:7A:96:3C:E1:51" />
+    <param name="update_rate" value="30.0" />
+  </node>
+
+  <!-- Run rviz -->
+  <node if="$(arg launch_rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(find keigan_motor_bringup)/launch/keigan_motor_bringup.rviz"/>
+
+</launch>

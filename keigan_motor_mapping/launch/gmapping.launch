@@ -1,0 +1,25 @@
+<launch>
+  <arg name="use_bag" default="false"/>
+  <arg name="launch_rviz" default="true"/>
+  <arg name="launch_joy" default="true"/>
+
+  <!-- Specify the bag file -->
+  <arg name="bag_file" default="$(find keigan_motor_mapping)/bags/2017-03-15-10-49-47.bag"/>
+
+  <!-- Play the bag file and use simulated clock -->
+  <include if="$(arg use_bag)" file="$(find keigan_motor_mapping)/launch/include/play_bag_file.launch.xml">
+    <arg name="bag_file" value="$(arg bag_file)"/>
+  </include>
+
+  <!-- Start gmapping -->
+  <node name="gmapping" pkg="gmapping" type="slam_gmapping"/>
+
+  <!-- Rviz -->
+  <include if="$(arg launch_rviz)" file="$(find keigan_motor_mapping)/launch/rviz.launch"/>
+
+  <!-- teleop_joy -->
+  <include if="$(arg launch_joy)" file="$(find keigan_motor_bringup)/launch/teleop_joy.launch">
+    <arg name="with_rviz" value="false"/>
+  </include>
+
+</launch>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>keigan_motor_description</name>
+  <version>0.0.1</version>
+  <description>The keigan_motor_description package</description>
+
+  <maintainer email="furqan.habibi1@gmail.com">Muhammad Furqan Habibi</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <author email="ryosuke.tajima@opensource-robotics.tokyo.jp">Muhammad Furqan Habibi</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <test_depend>rostest</test_depend>
+  <test_depend>roslaunch</test_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
