@@ -1,4 +1,4 @@
 <launch>
   <!-- Start rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find roomblock_mapping)/launch/mapping.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find keigan_motor_mapping)/launch/mapping.rviz"/>
 </launch>

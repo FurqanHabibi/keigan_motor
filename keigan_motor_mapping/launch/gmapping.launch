@@ -1,7 +1,7 @@
 <launch>
   <arg name="use_bag" default="false"/>
   <arg name="launch_rviz" default="true"/>
-  <arg name="launch_joy" default="true"/>
+  <arg name="launch_joy" default="false"/>
 
   <!-- Specify the bag file -->
   <arg name="bag_file" default="$(find keigan_motor_mapping)/bags/2017-03-15-10-49-47.bag"/>

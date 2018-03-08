@@ -2,10 +2,9 @@ robot_base_frame: base_link
 
 transform_tolerance: 0.5
 
-robot_radius: 0.175
+footprint: [[0.052, 0.182], [0.052, -0.182], [-0.273, -0.182], [-0.273, 0.182]]
+
 inflater:
-  footprint: [[0.052, 0.182], [0.052, -0.182], [-0.273, -0.182], [-0.273, 0.182]]
-  #robot_radius: 0.175
   inflation_radius: 0.2
 
 obstacles:
